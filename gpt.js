@@ -1,29 +1,16 @@
-function createPerson(name, birthYear, siteName) {
-    // Check if all properties are provided
-    if (!name || !birthYear || !siteName) {
-      return 'Invalid: Please provide all properties (name, birthYear, siteName)';
+function monthlySavings(array, number) {
+  let totalEarn = 0;
+  let earn = 0;
+  for (const number of array) {
+      earn = earn + number;
+      if (typeof array.length >= 3000) {
+      earn = earn - (earn * (20/100));
     }
-  
-    // Check if birthYear has exactly 4 digits
-    if (birthYear.toString().length !== 4) {
-      return 'Invalid: Birth year must be a 4-digit number';
-    }
-  
-    // Construct the password
-    let password = siteName.charAt(0).toUpperCase() + '#' + name + '@' + birthYear;
-  
-    return password;
+    let savings = totalEarn - number;
+    return savings;
   }
-  
-  // Example usage:
-  let myPassword = createPerson('John Doe', 1992, 'exampleSite');
-  console.log(myPassword);  // Output: ExampleSite#John Doe@1992
-  
-  // Example with missing property
-  let invalidPerson = createPerson('Jane Smith', 1985);
-  console.log(invalidPerson);  // Output: Invalid: Please provide all properties (name, birthYear, siteName)
-  
-  // Example with invalid birthYear
-  let invalidBirthYear = createPerson('Alice Johnson', 12345, 'testSite');
-  console.log(invalidBirthYear);  // Output: Invalid: Birth year must be a 4-digit number
-  
+}
+const array = [1000, 2000, 3000];
+const number = 5400;
+const finalSaving = monthlySavings(array, number);
+console.log("Total earn:", finalSaving);
